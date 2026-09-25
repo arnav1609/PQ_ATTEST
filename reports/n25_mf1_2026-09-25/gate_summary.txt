@@ -1,0 +1,10 @@
+N-2.5 GATE | run impl_1 | Fri Sep 25 01:35:44 +0530 2026 | Vivado 2024.1 | xc7a100tcsg324-1
+git HEAD acd1f73 | strategy Performance_ExplorePostRoutePhysOpt | clock period 20.000 ns
+setup  WNS 0.202  TNS 0.000  failing 0 / 18237 endpoints
+hold   WHS 0.047  THS 0.000  failing 0
+pulse  WPWS 8.750  TPWS 0.000
+route  nets with routing errors: 0 | DRC errors: 0 | check_timing issues: none (rst/led known)
+util   LUT 10114 | LUTRAM 1716 | FF 2178 | BRAM 0 | DSP 0
+D7/D7b present: eject_wr_q 6/6 | eject_flit_q bits 216 (<=216) | link valid regs 14/14
+worst  u_mesh/GEN_R[0].r/u_datapath/south_vc1_fifo/rd_ptr_reg[0]/C -> u_mesh/GEN_R[0].r/G_EJECT_REG.eject_flit_q_reg[flit_data][12]/D | levels 19 | data 19.761 ns | net 15.914 ns
+VERDICT PASS - timing closed at 20.000 ns

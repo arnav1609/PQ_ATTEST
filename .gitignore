@@ -1,0 +1,27 @@
+# Vivado build/output directories (regenerated from sources)
+NOC_PQATTEST.cache/
+NOC_PQATTEST.gen/
+NOC_PQATTEST.hw/
+NOC_PQATTEST.sim/
+NOC_PQATTEST.ip_user_files/
+NOC_PQATTEST.runs/
+.Xil/
+
+# Vivado logs / journals / scratch
+*.jou
+*.log
+*.str
+*.wdb
+*.pb
+xsim.dir/
+webtalk*.jou
+webtalk*.log
+
+# Python (reference model scratch)
+__pycache__/
+*.pyc
+
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+*~

@@ -1,0 +1,12 @@
+[
+  {
+    "vector_id": "V01",
+    "input": "0011223344556677",
+    "rtl_output": "8899aabbccddeeff"
+  },
+  {
+    "vector_id": "V02",
+    "input": "1020304050607080",
+    "rtl_output": "ffeeddccbbaa9988"
+  }
+]

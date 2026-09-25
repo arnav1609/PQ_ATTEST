@@ -1,0 +1,17 @@
+# Line-ending policy. Vivado on Windows rewrites files with CRLF, which made
+# every touched source show as a full-file diff. Repo stores LF; content diffs
+# only. (Recovery M-0, 2026-09.)
+*.sv   text eol=lf
+*.svh  text eol=lf
+*.v    text eol=lf
+*.vh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.tcl  text eol=lf
+*.xdc  text
+*.xpr  text
+*.bd   text
+*.bda  text
+*.log  text
+*.zip  binary
+*.bit  binary

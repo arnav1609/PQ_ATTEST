@@ -1,0 +1,88 @@
+=== M-0 RECOVERY SNAPSHOT  2026-09-22T19:58:55+00:00 ===
+--- branch ---
+task1-s7-mutation
+--- branches ---
+  master
+* task1-s7-mutation
+--- stash ---
+--- log ---
+1961647 (HEAD -> task1-s7-mutation) Snapshot working-tree changes: SHA3 byte-order fix, TB updates, fileset cleanup
+29de1b0 task3: add L=128 KAT to kmac_tb (out_len_sel-low path, previously untested)
+ea75f40 task2: in-repo crypto reference model + Stage-7 vector generator
+f69862c fix(s7-tb): capture obs_v01 so differs-from-baseline checks are not vacuous
+80ad962 safety: track untracked verified crypto-stage files before S-7 mutation pass
+f6ad8c2 (master) docs: mark NoC cross-check N-1 (TB1 compile) as fixed
+4e7b0f9 fix(noc-tb): relocate TB1 coverage block below declarations (VRFC 10-3380)
+36d8fdc docs: NoC completed-stages cross-check (Phases 1-5 / M1-M11)
+b75a867 docs: finalize POLISH_REPORT with verified Stage-5 TB, sim provenance, git-init
+73a45f9 Initial commit: PQ-Attest NoC RISC-V SoC (crypto lane Stages 1-5 + NoC lane)
+--- status --short ---
+ M NOC_PQATTEST.srcs/sim_1/new/credit_control_tb.sv
+ M NOC_PQATTEST.srcs/sim_1/new/stage3_golden_tb.sv
+ M NOC_PQATTEST.srcs/sim_1/new/stage3_tb.sv
+ M NOC_PQATTEST.srcs/sources_1/bd/design_1/design_1.bd
+ M NOC_PQATTEST.srcs/sources_1/bd/design_1/design_1.bda
+ M NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv
+ M NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv
+ M NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv
+ M NOC_PQATTEST.srcs/sources_1/new/NOC_XY_ROUTING.sv
+ M NOC_PQATTEST.srcs/sources_1/new/SHA3_256.sv
+ M NOC_PQATTEST.srcs/sources_1/new/SHA3_ABSORB.sv
+ M NOC_PQATTEST.srcs/sources_1/new/SHA3_PAD.sv
+ M NOC_PQATTEST.srcs/sources_1/new/SHA3_PKG.sv
+ M NOC_PQATTEST.srcs/sources_1/new/TRNG_CONDITIONER.sv
+ M NOC_PQATTEST.srcs/sources_1/new/TRNG_HEALTH.sv
+ M NOC_PQATTEST.srcs/sources_1/new/TRNG_PKG.sv
+ M NOC_PQATTEST.srcs/sources_1/new/TRNG_SOURCE.sv
+ M NOC_PQATTEST.srcs/sources_1/new/allocator.sv
+ M NOC_PQATTEST.srcs/sources_1/new/kmac_128.sv
+ M NOC_PQATTEST.srcs/sources_1/new/kmac_absorb.sv
+ M NOC_PQATTEST.srcs/sources_1/new/kmac_encode.sv
+ M NOC_PQATTEST.srcs/sources_1/new/kmac_pkg.sv
+ M NOC_PQATTEST.srcs/sources_1/new/noc_credit_counter.sv
+ M NOC_PQATTEST.srcs/sources_1/new/noc_router.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pq_kdf.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pq_kdf_message_builder.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pq_kdf_pkg.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pq_kdf_sp800185_encoder.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pqattest_stg7.sv
+ M NOC_PQATTEST.srcs/sources_1/new/pqattest_stg7_pkg.sv
+ M NOC_PQATTEST.xpr
+ M NOC_PQATTEST.xpr.bak_20260909
+?? NOC_PQATTEST.srcs/sources_1/new/tb6_1.sv
+?? NOC_PQATTEST.srcs/sources_1/new/tb_noc_mesh.sv
+?? NOC_PQATTEST.srcs/sources_1/new/tb_noc_router_m9_credit.sv
+?? NOC_PQATTEST.zip
+?? NOC_WORKSTREAM.zip
+?? logs/
+--- diff -w --stat ---
+ NOC_PQATTEST.srcs/sim_1/new/credit_control_tb.sv   | 541 +++++++--------
+ NOC_PQATTEST.srcs/sim_1/new/stage3_golden_tb.sv    | 752 ---------------------
+ NOC_PQATTEST.srcs/sim_1/new/stage3_tb.sv           |   5 +-
+ NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv    |   2 +
+ NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv        |  23 +-
+ NOC_PQATTEST.srcs/sources_1/new/allocator.sv       |  12 +-
+ NOC_PQATTEST.srcs/sources_1/new/kmac_encode.sv     |   2 +-
+ .../sources_1/new/noc_credit_counter.sv            |  33 +
+ NOC_PQATTEST.srcs/sources_1/new/noc_router.sv      | 121 +++-
+ NOC_PQATTEST.xpr                                   | 126 ++--
+ 10 files changed, 473 insertions(+), 1144 deletions(-)
+--- MUT- markers ---
+NOC_PQATTEST.srcs/sources_1/new/kmac_encode.sv:444:                    block_data[msg_len_reg + 0] = 8'h81;   // MUT-S3b: right_encode(128) value byte 0x80->0x81 (L=128 path ONLY; expect ONLY the L=128 KAT to FAIL)
+--- 0-byte sv ---
+NOC_PQATTEST.srcs/sim_1/new/stage3_golden_tb.sv
+--- key files ---
+   13657 B  2026-09-20 10:52:35.593406800 +0000  sources_1/new/kmac_encode.sv
+   29481 B  2026-09-21 17:47:16.835960000 +0000  sources_1/new/noc_router.sv
+   32276 B  2026-09-21 17:33:17.001797600 +0000  sources_1/new/allocator.sv
+   12928 B  2026-09-20 15:38:16.293280000 +0000  sources_1/new/NOC_FIFO.sv
+   12971 B  2026-09-21 07:24:21.201179000 +0000  sources_1/new/NOC_CROSSBAR.sv
+   16888 B  2026-09-21 17:33:55.182743400 +0000  sources_1/new/noc_credit_counter.sv
+   20347 B  2026-09-11 18:08:23.383645900 +0000  sources_1/new/NOC_PKG.sv
+   11925 B  2026-09-21 17:59:29.971830100 +0000  sources_1/new/tb_noc_router_m9_credit.sv
+   29186 B  2026-09-22 16:41:58.984246600 +0000  sources_1/new/tb_noc_mesh.sv
+       0 B  2026-09-21 18:06:07.369592700 +0000  sim_1/new/stage3_golden_tb.sv
+   23067 B  2026-09-20 06:32:50.847648500 +0000  sim_1/new/pqattest_tb.sv
+--- xpr tops ---
+404:        <Option Name="TopModule" Val="tb_n6_two_tile_stress"/>
+544:        <Option Name="TopModule" Val="tb_noc_mesh_n7"/>

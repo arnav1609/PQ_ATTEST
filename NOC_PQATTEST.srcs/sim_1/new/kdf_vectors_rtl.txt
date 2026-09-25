@@ -1,0 +1,28 @@
+// PQ-Attest Stage 5 - KDF golden vectors, testbench form.
+//
+// Regenerated directly from software/kmac128_ref.py derive_tile_key() and
+// checked byte-for-byte against software/kdf_vectors.txt.
+//
+// FIELDS (whitespace separated, fixed width, zero padded):
+//   name  root_secret(64)  tile_id(14)  epoch(20)  context(28)  ctx_len  key_bytes  expected_key(64)
+//
+// Hex is in PRINTED order (byte 0 leftmost) so a human can diff this against
+// kdf_vectors.txt. pq_kdf.sv packs byte i at [i*8 +: 8] - the OPPOSITE order -
+// so pq_kdf_tb.sv byte-swaps every field as it loads. That swap is the single
+// most likely source of a false failure here, so the TB self-tests it before
+// running a single vector.
+//
+// Why this file exists instead of parsing kdf_vectors.txt directly:
+// kdf_vectors.txt writes V05's empty context as "|  |". $fscanf skips
+// whitespace, so it would read the NEXT field as the context and silently
+// corrupt that vector and every field after it. Here the context is always
+// 14 bytes wide and its true length is carried explicitly.
+//
+// A 16-byte expected key is zero-padded to 32 bytes; only the low 16 bytes
+// are compared for those vectors.
+V01_basic         000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3031 45504f43485f30303031 50512d4154544553542d4b444600 13 16 9c699e785af03e632e2da3cbe9ede27c00000000000000000000000000000000
+V02_tile_change   000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3032 45504f43485f30303031 50512d4154544553542d4b444600 13 16 f30ddb5b98f18616cfd5869f773fe53a00000000000000000000000000000000
+V03_epoch_change  000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3031 45504f43485f30303032 50512d4154544553542d4b444600 13 16 6b166b7c1e131c6b418ee284cd67467700000000000000000000000000000000
+V04_ctx_change    000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3031 45504f43485f30303031 50512d4154544553542d41555448 14 16 ff09225456dd309555bd6bd4a890b27900000000000000000000000000000000
+V05_empty_ctx     000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3031 45504f43485f30303031 0000000000000000000000000000  0 16 92aea90b633ab5b0f512e4115ad2b4c100000000000000000000000000000000
+V06_256bit_key    000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f 54494c455f3031 45504f43485f30303031 50512d4154544553542d4b444600 13 32 f3d22e09c5b0ba3b0e5a7c85ab7703fc95d5e5dd5bebd9044a3dd2a4824d6989

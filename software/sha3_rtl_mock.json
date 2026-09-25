@@ -1,0 +1,66 @@
+[
+  {
+    "vector_id": "SHA3_V01_empty",
+    "rtl_output": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a"
+  },
+  {
+    "vector_id": "SHA3_V02_abc",
+    "rtl_output": "3a985da74fe225b2045c172d6bd390bd855f086e3e9d525b46bfe24511431532"
+  },
+  {
+    "vector_id": "SHA3_V03_short",
+    "rtl_output": "644bcc7e564373040999aac89e7622f3ca71fba1d972fd94a31c3bfbf24e3938"
+  },
+  {
+    "vector_id": "SHA3_V04_135_bytes",
+    "rtl_output": "8094bb53c44cfb1e67b7c30447f9a1c33696d2463ecc1d9c92538913392843c9"
+  },
+  {
+    "vector_id": "SHA3_V05_136_bytes",
+    "rtl_output": "3fc5559f14db8e453a0a3091edbd2bc25e11528d81c66fa570a4efdcc2695ee1"
+  },
+  {
+    "vector_id": "SHA3_V06_137_bytes",
+    "rtl_output": "f8d6846cedd2ccfadf15c5879ef95af724d799eed7391fb1c91f95344e738614"
+  },
+  {
+    "vector_id": "SHA3_V07_multiblock",
+    "rtl_output": "d4728ea5e9f3819f2b4760151a8f802dbe9f941fd6fb59b3715892436555772a"
+  },
+  {
+    "vector_id": "SHA3_V08_random_1",
+    "rtl_output": "1bbebcf85c065dabe7c4f2ade2a86dfef2998e05662928c3f0cdb1168c607a6e"
+  },
+  {
+    "vector_id": "SHA3_V09_random_17",
+    "rtl_output": "04beb492c0b6dd74fc8b64e8c7e616b93ec171362214a6416c0677b4138617bf"
+  },
+  {
+    "vector_id": "SHA3_V10_random_64",
+    "rtl_output": "1af4cb91434e48a83098ac75140c5e352aef7a0de941bd8b91004270721a0d23"
+  },
+  {
+    "vector_id": "SHA3_V11_random_135",
+    "rtl_output": "2d405e7efb09c71c2de3fd4f76b63a92a70529e76de87e7cfdb4a33b1127bf66"
+  },
+  {
+    "vector_id": "SHA3_V12_random_136",
+    "rtl_output": "a6ca7a3a0082f59869bd2291ceaeaaf01dad61a1fa5e0fc2f43caf2e6d5d8b7f"
+  },
+  {
+    "vector_id": "SHA3_V13_random_137",
+    "rtl_output": "b80374e71c89d68beab79aa1830fc8e4de153bb0d28c5996edfcedd79ef33145"
+  },
+  {
+    "vector_id": "SHA3_V14_random_272",
+    "rtl_output": "fc3d012ec1e1f213320410b50d7d315af034207cbe30f6a05ad778dda02c785a"
+  },
+  {
+    "vector_id": "SHA3_V15_random_273",
+    "rtl_output": "200f873b2ffa749e3026f8d7e712f0e7156e792dff19b5958fd592070a632020"
+  },
+  {
+    "vector_id": "SHA3_V16_random_511",
+    "rtl_output": "ef3d55f2e38d6794d3ff289af531ef0a6ecac3496c2144381b9f0d2487be4d28"
+  }
+]

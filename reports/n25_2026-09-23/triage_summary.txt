@@ -1,0 +1,6 @@
+N-2.5 triage | impl_1 routed | Wed Sep 23 22:58:12 +0530 2026 | 5261 endpoints with slack < 3.0 ns
+class,status : endpoints  worst_slack_ns
+inter,FAIL     :   2516    -1.301
+inter,pass     :   1642     0.001
+intra,FAIL     :    132    -0.343
+intra,pass     :    971     0.007

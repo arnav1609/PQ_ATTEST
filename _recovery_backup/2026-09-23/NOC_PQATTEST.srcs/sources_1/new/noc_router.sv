@@ -1,0 +1,569 @@
+`timescale 1ns/1ps
+//=============================================================================
+// Module : noc_router
+// File   : noc_router.sv
+//
+// M8/M9 - router top level. Binds M4 -> M7 -> M9 -> M3.
+//
+//   noc_router_datapath (M4)   15 FIFOs, VC decode, head-flit exposure
+//   NOC_ALLOCATOR       (M7)   routing, two-stage allocation, reservation
+//   noc_crossbar        (M3)   physical data selection
+//
+// M8 contains no scheduling policy. M7 allocates; M9 qualifies the allocated
+// transfer against downstream credit; M8 wires the qualified result to M4/M3.
+//
+//-----------------------------------------------------------------------------
+// BUG 1 (fixed here) - input-side valid must not be gated by an output grant
+//-----------------------------------------------------------------------------
+// The first draft wrote:
+//
+//     .in_valid_north (crossbar_valid_north & xbar_valid_north)
+//
+// noc_crossbar computes  out_valid_<out> = in_valid_<selected input>.
+// So in_valid_X means "physical input X has a flit", while xbar_valid_north
+// meant "the NORTH OUTPUT has a grant". Different indices.
+//
+// A flit entering NORTH and leaving EAST would see xbar_valid_north = 0,
+// which forced in_valid_north = 0, so out_valid_east = 0 and the flit was
+// DROPPED - on the most ordinary XY turn in the router.
+//
+// Correct: offer every input unconditionally, and qualify each OUTPUT with
+// that output's own grant.
+//
+//-----------------------------------------------------------------------------
+// BUG 2 (fixed here) - an idle select must not be a real port
+//-----------------------------------------------------------------------------
+// select_* originally defaulted to PORT_NORTH when its output had no grant.
+// noc_crossbar asserts
+//
+//     !(in_valid_north && select_north == PORT_NORTH)
+//
+// and that assertion knows nothing about grants. On NORTH -> EAST,
+// crossbar_valid_north is high because NORTH's VC feeds the EAST output, while
+// the NORTH output has no grant and its select still sits at its default. The
+// crossbar then sees a NORTH-to-NORTH loopback and fires - again on the most
+// ordinary turn in the router.
+//
+// select_* now idles at noc_pkg::PORT_NONE, which is outside the legal port
+// range; the crossbar's existing default branch zeroes the output for it.
+//
+// Found by sim_noc_router.py before any simulator saw this file.
+//
+//-----------------------------------------------------------------------------
+// CONTRACT L-07 - why the output qualification exists
+//-----------------------------------------------------------------------------
+// Even with PORT_NONE idling the select, out_valid must still be qualified:
+// the crossbar derives out_valid_<o> from the selected INPUT's valid, which
+// says nothing about whether output <o> was granted. Masking out_valid_<o>
+// with grant_valid[<o>] closes that at the correct index.
+//
+//-----------------------------------------------------------------------------
+// M9 CREDIT CONTRACT
+//-----------------------------------------------------------------------------
+// M7 produces the arbitration result. M9 is the only stage allowed to suppress
+// an allocated transfer because downstream credit may be zero. M7 reservation
+// state is committed from the M9-qualified transfer_valid signal, so a blocked
+// HEAD cannot acquire a reservation and a blocked TAIL cannot release one.
+//=============================================================================
+
+module noc_router (
+
+    input  logic            clk,
+    input  logic            rst,
+
+    input  noc_pkg::coord_t current_coord,
+
+    // Physical inputs
+    input  noc_pkg::flit_t  in_flit_north,  input logic in_valid_north,
+    input  noc_pkg::flit_t  in_flit_south,  input logic in_valid_south,
+    input  noc_pkg::flit_t  in_flit_east,   input logic in_valid_east,
+    input  noc_pkg::flit_t  in_flit_west,   input logic in_valid_west,
+    input  noc_pkg::flit_t  in_flit_local,  input logic in_valid_local,
+
+    // One-cycle credit return per downstream output / VC.
+    input logic [noc_pkg::NUM_VC-1:0] credit_return [noc_pkg::NUM_PORTS],
+
+    // Physical outputs
+    output noc_pkg::flit_t  out_flit_north, output logic out_valid_north,
+    output noc_pkg::flit_t  out_flit_south, output logic out_valid_south,
+    output noc_pkg::flit_t  out_flit_east,  output logic out_valid_east,
+    output noc_pkg::flit_t  out_flit_west,  output logic out_valid_west,
+    output noc_pkg::flit_t  out_flit_local, output logic out_valid_local
+);
+
+    import noc_pkg::*;
+
+    localparam int unsigned IVCS   = NUM_INPUT_VCS;    // 15, from noc_pkg
+    localparam int unsigned IVC_W  = INPUT_VC_WIDTH;   // 4,  from noc_pkg
+
+    //=========================================================================
+    // Interconnect
+    //=========================================================================
+
+    flit_t head_flit  [IVCS];
+    logic  fifo_empty [IVCS];
+
+    logic [IVCS-1:0]  grant [NUM_PORTS];
+    logic [NUM_PORTS-1:0] grant_valid;
+    logic [IVC_W-1:0] xbar_sel [NUM_PORTS];
+    logic [IVCS-1:0]  fifo_rd_en;
+
+    // M9 credit-qualified transfer controls.
+    logic [NUM_PORTS-1:0] grant_valid_qualified;
+    logic [IVCS-1:0]      fifo_rd_en_credit;
+    logic [NUM_PORTS-1:0] credit_ok;
+
+    // M4 scalar ports
+    logic  sel_north_vc0, sel_north_vc1, sel_north_vc2;
+    logic  sel_south_vc0, sel_south_vc1, sel_south_vc2;
+    logic  sel_east_vc0,  sel_east_vc1,  sel_east_vc2;
+    logic  sel_west_vc0,  sel_west_vc1,  sel_west_vc2;
+    logic  sel_local_vc0, sel_local_vc1, sel_local_vc2;
+
+    logic  rd_en_north_vc0, rd_en_north_vc1, rd_en_north_vc2;
+    logic  rd_en_south_vc0, rd_en_south_vc1, rd_en_south_vc2;
+    logic  rd_en_east_vc0,  rd_en_east_vc1,  rd_en_east_vc2;
+    logic  rd_en_west_vc0,  rd_en_west_vc1,  rd_en_west_vc2;
+    logic  rd_en_local_vc0, rd_en_local_vc1, rd_en_local_vc2;
+
+    flit_t head_north_vc0, head_north_vc1, head_north_vc2;
+    flit_t head_south_vc0, head_south_vc1, head_south_vc2;
+    flit_t head_east_vc0,  head_east_vc1,  head_east_vc2;
+    flit_t head_west_vc0,  head_west_vc1,  head_west_vc2;
+    flit_t head_local_vc0, head_local_vc1, head_local_vc2;
+
+    logic  empty_north_vc0, empty_north_vc1, empty_north_vc2;
+    logic  empty_south_vc0, empty_south_vc1, empty_south_vc2;
+    logic  empty_east_vc0,  empty_east_vc1,  empty_east_vc2;
+    logic  empty_west_vc0,  empty_west_vc1,  empty_west_vc2;
+    logic  empty_local_vc0, empty_local_vc1, empty_local_vc2;
+
+    // Left unconnected on purpose. full_* and credit_* are consumed by
+    // noc_credit_control in Phase 4; the datapath already brings them out.
+    logic  full_north_vc0, full_north_vc1, full_north_vc2;
+    logic  full_south_vc0, full_south_vc1, full_south_vc2;
+    logic  full_east_vc0,  full_east_vc1,  full_east_vc2;
+    logic  full_west_vc0,  full_west_vc1,  full_west_vc2;
+    logic  full_local_vc0, full_local_vc1, full_local_vc2;
+
+    logic  credit_north_vc0, credit_north_vc1, credit_north_vc2;
+    logic  credit_south_vc0, credit_south_vc1, credit_south_vc2;
+    logic  credit_east_vc0,  credit_east_vc1,  credit_east_vc2;
+    logic  credit_west_vc0,  credit_west_vc1,  credit_west_vc2;
+    logic  credit_local_vc0, credit_local_vc1, credit_local_vc2;
+
+    flit_t crossbar_in_north, crossbar_in_south, crossbar_in_east;
+    flit_t crossbar_in_west,  crossbar_in_local;
+    logic  crossbar_valid_north, crossbar_valid_south, crossbar_valid_east;
+    logic  crossbar_valid_west,  crossbar_valid_local;
+
+    port_id_t select_north, select_south, select_east, select_west, select_local;
+
+    // Raw crossbar outputs, before grant qualification.
+    flit_t xb_out_north, xb_out_south, xb_out_east, xb_out_west, xb_out_local;
+    logic  xb_val_north, xb_val_south, xb_val_east, xb_val_west, xb_val_local;
+
+    //=========================================================================
+    // M4
+    //=========================================================================
+
+    noc_router_datapath u_datapath (
+        .clk (clk), .rst (rst),
+
+        .in_flit_north (in_flit_north), .in_valid_north (in_valid_north),
+        .in_flit_south (in_flit_south), .in_valid_south (in_valid_south),
+        .in_flit_east  (in_flit_east),  .in_valid_east  (in_valid_east),
+        .in_flit_west  (in_flit_west),  .in_valid_west  (in_valid_west),
+        .in_flit_local (in_flit_local), .in_valid_local (in_valid_local),
+
+        .rd_en_north_vc0 (rd_en_north_vc0), .rd_en_north_vc1 (rd_en_north_vc1), .rd_en_north_vc2 (rd_en_north_vc2),
+        .rd_en_south_vc0 (rd_en_south_vc0), .rd_en_south_vc1 (rd_en_south_vc1), .rd_en_south_vc2 (rd_en_south_vc2),
+        .rd_en_east_vc0  (rd_en_east_vc0),  .rd_en_east_vc1  (rd_en_east_vc1),  .rd_en_east_vc2  (rd_en_east_vc2),
+        .rd_en_west_vc0  (rd_en_west_vc0),  .rd_en_west_vc1  (rd_en_west_vc1),  .rd_en_west_vc2  (rd_en_west_vc2),
+        .rd_en_local_vc0 (rd_en_local_vc0), .rd_en_local_vc1 (rd_en_local_vc1), .rd_en_local_vc2 (rd_en_local_vc2),
+
+        .sel_north_vc0 (sel_north_vc0), .sel_north_vc1 (sel_north_vc1), .sel_north_vc2 (sel_north_vc2),
+        .sel_south_vc0 (sel_south_vc0), .sel_south_vc1 (sel_south_vc1), .sel_south_vc2 (sel_south_vc2),
+        .sel_east_vc0  (sel_east_vc0),  .sel_east_vc1  (sel_east_vc1),  .sel_east_vc2  (sel_east_vc2),
+        .sel_west_vc0  (sel_west_vc0),  .sel_west_vc1  (sel_west_vc1),  .sel_west_vc2  (sel_west_vc2),
+        .sel_local_vc0 (sel_local_vc0), .sel_local_vc1 (sel_local_vc1), .sel_local_vc2 (sel_local_vc2),
+
+        .head_north_vc0 (head_north_vc0), .head_north_vc1 (head_north_vc1), .head_north_vc2 (head_north_vc2),
+        .head_south_vc0 (head_south_vc0), .head_south_vc1 (head_south_vc1), .head_south_vc2 (head_south_vc2),
+        .head_east_vc0  (head_east_vc0),  .head_east_vc1  (head_east_vc1),  .head_east_vc2  (head_east_vc2),
+        .head_west_vc0  (head_west_vc0),  .head_west_vc1  (head_west_vc1),  .head_west_vc2  (head_west_vc2),
+        .head_local_vc0 (head_local_vc0), .head_local_vc1 (head_local_vc1), .head_local_vc2 (head_local_vc2),
+
+        .empty_north_vc0 (empty_north_vc0), .empty_north_vc1 (empty_north_vc1), .empty_north_vc2 (empty_north_vc2),
+        .empty_south_vc0 (empty_south_vc0), .empty_south_vc1 (empty_south_vc1), .empty_south_vc2 (empty_south_vc2),
+        .empty_east_vc0  (empty_east_vc0),  .empty_east_vc1  (empty_east_vc1),  .empty_east_vc2  (empty_east_vc2),
+        .empty_west_vc0  (empty_west_vc0),  .empty_west_vc1  (empty_west_vc1),  .empty_west_vc2  (empty_west_vc2),
+        .empty_local_vc0 (empty_local_vc0), .empty_local_vc1 (empty_local_vc1), .empty_local_vc2 (empty_local_vc2),
+
+        .full_north_vc0 (full_north_vc0), .full_north_vc1 (full_north_vc1), .full_north_vc2 (full_north_vc2),
+        .full_south_vc0 (full_south_vc0), .full_south_vc1 (full_south_vc1), .full_south_vc2 (full_south_vc2),
+        .full_east_vc0  (full_east_vc0),  .full_east_vc1  (full_east_vc1),  .full_east_vc2  (full_east_vc2),
+        .full_west_vc0  (full_west_vc0),  .full_west_vc1  (full_west_vc1),  .full_west_vc2  (full_west_vc2),
+        .full_local_vc0 (full_local_vc0), .full_local_vc1 (full_local_vc1), .full_local_vc2 (full_local_vc2),
+
+        .credit_north_vc0 (credit_north_vc0), .credit_north_vc1 (credit_north_vc1), .credit_north_vc2 (credit_north_vc2),
+        .credit_south_vc0 (credit_south_vc0), .credit_south_vc1 (credit_south_vc1), .credit_south_vc2 (credit_south_vc2),
+        .credit_east_vc0  (credit_east_vc0),  .credit_east_vc1  (credit_east_vc1),  .credit_east_vc2  (credit_east_vc2),
+        .credit_west_vc0  (credit_west_vc0),  .credit_west_vc1  (credit_west_vc1),  .credit_west_vc2  (credit_west_vc2),
+        .credit_local_vc0 (credit_local_vc0), .credit_local_vc1 (credit_local_vc1), .credit_local_vc2 (credit_local_vc2),
+
+        .crossbar_in_north (crossbar_in_north), .crossbar_in_south (crossbar_in_south),
+        .crossbar_in_east  (crossbar_in_east),  .crossbar_in_west  (crossbar_in_west),
+        .crossbar_in_local (crossbar_in_local),
+
+        .crossbar_valid_north (crossbar_valid_north), .crossbar_valid_south (crossbar_valid_south),
+        .crossbar_valid_east  (crossbar_valid_east),  .crossbar_valid_west  (crossbar_valid_west),
+        .crossbar_valid_local (crossbar_valid_local)
+    );
+
+    //=========================================================================
+    // M4 -> M7 reshaping.  Uses noc_pkg::make_input_vc, never a hand-written
+    // index table - the convention is defined once in the package (A8).
+    //=========================================================================
+
+    always_comb begin
+        head_flit [make_input_vc(PORT_NORTH,0)] = head_north_vc0;
+        head_flit [make_input_vc(PORT_NORTH,1)] = head_north_vc1;
+        head_flit [make_input_vc(PORT_NORTH,2)] = head_north_vc2;
+        head_flit [make_input_vc(PORT_SOUTH,0)] = head_south_vc0;
+        head_flit [make_input_vc(PORT_SOUTH,1)] = head_south_vc1;
+        head_flit [make_input_vc(PORT_SOUTH,2)] = head_south_vc2;
+        head_flit [make_input_vc(PORT_EAST ,0)] = head_east_vc0;
+        head_flit [make_input_vc(PORT_EAST ,1)] = head_east_vc1;
+        head_flit [make_input_vc(PORT_EAST ,2)] = head_east_vc2;
+        head_flit [make_input_vc(PORT_WEST ,0)] = head_west_vc0;
+        head_flit [make_input_vc(PORT_WEST ,1)] = head_west_vc1;
+        head_flit [make_input_vc(PORT_WEST ,2)] = head_west_vc2;
+        head_flit [make_input_vc(PORT_LOCAL,0)] = head_local_vc0;
+        head_flit [make_input_vc(PORT_LOCAL,1)] = head_local_vc1;
+        head_flit [make_input_vc(PORT_LOCAL,2)] = head_local_vc2;
+
+        fifo_empty[make_input_vc(PORT_NORTH,0)] = empty_north_vc0;
+        fifo_empty[make_input_vc(PORT_NORTH,1)] = empty_north_vc1;
+        fifo_empty[make_input_vc(PORT_NORTH,2)] = empty_north_vc2;
+        fifo_empty[make_input_vc(PORT_SOUTH,0)] = empty_south_vc0;
+        fifo_empty[make_input_vc(PORT_SOUTH,1)] = empty_south_vc1;
+        fifo_empty[make_input_vc(PORT_SOUTH,2)] = empty_south_vc2;
+        fifo_empty[make_input_vc(PORT_EAST ,0)] = empty_east_vc0;
+        fifo_empty[make_input_vc(PORT_EAST ,1)] = empty_east_vc1;
+        fifo_empty[make_input_vc(PORT_EAST ,2)] = empty_east_vc2;
+        fifo_empty[make_input_vc(PORT_WEST ,0)] = empty_west_vc0;
+        fifo_empty[make_input_vc(PORT_WEST ,1)] = empty_west_vc1;
+        fifo_empty[make_input_vc(PORT_WEST ,2)] = empty_west_vc2;
+        fifo_empty[make_input_vc(PORT_LOCAL,0)] = empty_local_vc0;
+        fifo_empty[make_input_vc(PORT_LOCAL,1)] = empty_local_vc1;
+        fifo_empty[make_input_vc(PORT_LOCAL,2)] = empty_local_vc2;
+    end
+
+    //=========================================================================
+    // M7
+    //=========================================================================
+
+    NOC_ALLOCATOR u_allocator (
+        .clk         (clk),
+        .rst         (rst),
+        .current_x   (current_coord.x),
+        .current_y   (current_coord.y),
+        .head_flit   (head_flit),
+        .fifo_empty  (fifo_empty),
+        .grant       (grant),
+        .grant_valid (grant_valid),
+        .xbar_sel    (xbar_sel),
+        .fifo_rd_en  (fifo_rd_en),
+        .transfer_valid (grant_valid_qualified)
+    );
+
+    //=========================================================================
+    // M9 CREDIT CONTROL
+    //-------------------------------------------------------------------------
+    // M7 still arbitrates. M9 qualifies the transfer. The qualified result
+    // feeds only M7's sequential reservation update, so a zero-credit flit
+    // cannot acquire/release a wormhole reservation without moving.
+    //=========================================================================
+    noc_credit_control u_credit_control (
+        .clk                   (clk),
+        .rst                   (rst),
+        .grant                 (grant),
+        .grant_valid           (grant_valid),
+        .xbar_sel              (xbar_sel),
+        .credit_return         (credit_return),
+        .credit_ok             (credit_ok),
+        .grant_valid_qualified (grant_valid_qualified),
+        .fifo_rd_en            (fifo_rd_en_credit)
+    );
+
+    //=========================================================================
+    // M7 -> M4 : read enables. Mechanical, one bit each.
+    //=========================================================================
+
+    always_comb begin
+        rd_en_north_vc0 = fifo_rd_en_credit[make_input_vc(PORT_NORTH,0)];
+        rd_en_north_vc1 = fifo_rd_en_credit[make_input_vc(PORT_NORTH,1)];
+        rd_en_north_vc2 = fifo_rd_en_credit[make_input_vc(PORT_NORTH,2)];
+        rd_en_south_vc0 = fifo_rd_en_credit[make_input_vc(PORT_SOUTH,0)];
+        rd_en_south_vc1 = fifo_rd_en_credit[make_input_vc(PORT_SOUTH,1)];
+        rd_en_south_vc2 = fifo_rd_en_credit[make_input_vc(PORT_SOUTH,2)];
+        rd_en_east_vc0  = fifo_rd_en_credit[make_input_vc(PORT_EAST ,0)];
+        rd_en_east_vc1  = fifo_rd_en_credit[make_input_vc(PORT_EAST ,1)];
+        rd_en_east_vc2  = fifo_rd_en_credit[make_input_vc(PORT_EAST ,2)];
+        rd_en_west_vc0  = fifo_rd_en_credit[make_input_vc(PORT_WEST ,0)];
+        rd_en_west_vc1  = fifo_rd_en_credit[make_input_vc(PORT_WEST ,1)];
+        rd_en_west_vc2  = fifo_rd_en_credit[make_input_vc(PORT_WEST ,2)];
+        rd_en_local_vc0 = fifo_rd_en_credit[make_input_vc(PORT_LOCAL,0)];
+        rd_en_local_vc1 = fifo_rd_en_credit[make_input_vc(PORT_LOCAL,1)];
+        rd_en_local_vc2 = fifo_rd_en_credit[make_input_vc(PORT_LOCAL,2)];
+    end
+
+    //=========================================================================
+    // M7 -> M4 : VC select, and M7 -> M3 : physical port select
+    //
+    // Both derive from the SAME grant. xbar_sel[o] is a global input-VC index;
+    // input_vc_port() gives the physical port and input_vc_channel() the VC.
+    // Neither is open-coded as "/ 3" or "% 3" - the mapping lives in noc_pkg.
+    //=========================================================================
+
+    // Declared at the top of the block, not inside it: XSim rejects
+    // 'automatic' declarations in unnamed procedural blocks.
+    int unsigned sel_p;
+    int unsigned sel_v;
+
+    always_comb begin
+
+        {sel_north_vc0, sel_north_vc1, sel_north_vc2} = 3'b000;
+        {sel_south_vc0, sel_south_vc1, sel_south_vc2} = 3'b000;
+        {sel_east_vc0,  sel_east_vc1,  sel_east_vc2 } = 3'b000;
+        {sel_west_vc0,  sel_west_vc1,  sel_west_vc2 } = 3'b000;
+        {sel_local_vc0, sel_local_vc1, sel_local_vc2} = 3'b000;
+
+        // BUG 2 (found by the Python cycle model, 2026-09-10).
+        //
+        // These defaulted to PORT_NORTH. noc_crossbar asserts
+        //
+        //     !(in_valid_north && select_north == PORT_NORTH)
+        //
+        // and that assertion knows nothing about grants. So on the ordinary
+        // case NORTH -> EAST: crossbar_valid_north is high (NORTH's VC was
+        // selected for the EAST output), while the NORTH output has no grant
+        // and its select still sat at its PORT_NORTH default. The crossbar
+        // then saw a NORTH-to-NORTH loopback and fired - on the most common
+        // turn in the router.
+        //
+        // An idle select must be a value that is NOT a real port. PORT_NONE
+        // is outside the legal range, and the crossbar's default branch
+        // already zeroes the output for it.
+        select_north = PORT_NONE;
+        select_south = PORT_NONE;
+        select_east  = PORT_NONE;
+        select_west  = PORT_NONE;
+        select_local = PORT_NONE;
+
+        for (int o = 0; o < NUM_PORTS; o++) begin
+
+            if (grant_valid[o]) begin
+
+                sel_p = input_vc_port   (int'(xbar_sel[o]));
+                sel_v = input_vc_channel(int'(xbar_sel[o]));
+
+                // Physical port feeding output o.
+                case (o)
+                    PORT_NORTH: select_north = port_id_t'(sel_p);
+                    PORT_SOUTH: select_south = port_id_t'(sel_p);
+                    PORT_EAST : select_east  = port_id_t'(sel_p);
+                    PORT_WEST : select_west  = port_id_t'(sel_p);
+                    PORT_LOCAL: select_local = port_id_t'(sel_p);
+                    default: ;
+                endcase
+
+                // Which VC that physical port must present.
+                //
+                // M7's A9 guarantees at most one output selects any given
+                // physical input, so these bits can never conflict. That is a
+                // property of M7, not of this block - M8 must not try to
+                // resolve a conflict it is not allowed to create.
+                case (sel_p)
+                    PORT_NORTH: case (sel_v)
+                        0: sel_north_vc0 = 1'b1;
+                        1: sel_north_vc1 = 1'b1;
+                        2: sel_north_vc2 = 1'b1;
+                        default: ;
+                    endcase
+                    PORT_SOUTH: case (sel_v)
+                        0: sel_south_vc0 = 1'b1;
+                        1: sel_south_vc1 = 1'b1;
+                        2: sel_south_vc2 = 1'b1;
+                        default: ;
+                    endcase
+                    PORT_EAST: case (sel_v)
+                        0: sel_east_vc0 = 1'b1;
+                        1: sel_east_vc1 = 1'b1;
+                        2: sel_east_vc2 = 1'b1;
+                        default: ;
+                    endcase
+                    PORT_WEST: case (sel_v)
+                        0: sel_west_vc0 = 1'b1;
+                        1: sel_west_vc1 = 1'b1;
+                        2: sel_west_vc2 = 1'b1;
+                        default: ;
+                    endcase
+                    PORT_LOCAL: case (sel_v)
+                        0: sel_local_vc0 = 1'b1;
+                        1: sel_local_vc1 = 1'b1;
+                        2: sel_local_vc2 = 1'b1;
+                        default: ;
+                    endcase
+                    default: ;
+                endcase
+
+            end
+
+        end
+    end
+
+    //=========================================================================
+    // M3
+    //
+    // BUG 1 FIX: inputs are offered UNCONDITIONALLY. Whether an input is used
+    // is the select's business, not the input's.
+    //=========================================================================
+
+    noc_crossbar u_crossbar (
+        .in_flit_north  (crossbar_in_north),
+        .in_flit_south  (crossbar_in_south),
+        .in_flit_east   (crossbar_in_east),
+        .in_flit_west   (crossbar_in_west),
+        .in_flit_local  (crossbar_in_local),
+
+        .in_valid_north (crossbar_valid_north),
+        .in_valid_south (crossbar_valid_south),
+        .in_valid_east  (crossbar_valid_east),
+        .in_valid_west  (crossbar_valid_west),
+        .in_valid_local (crossbar_valid_local),
+
+        .select_north   (select_north),
+        .select_south   (select_south),
+        .select_east    (select_east),
+        .select_west    (select_west),
+        .select_local   (select_local),
+
+        .out_flit_north (xb_out_north), .out_valid_north (xb_val_north),
+        .out_flit_south (xb_out_south), .out_valid_south (xb_val_south),
+        .out_flit_east  (xb_out_east),  .out_valid_east  (xb_val_east),
+        .out_flit_west  (xb_out_west),  .out_valid_west  (xb_val_west),
+        .out_flit_local (xb_out_local), .out_valid_local (xb_val_local)
+    );
+
+    //=========================================================================
+    // OUTPUT QUALIFICATION  (contract L-07, at the correct index)
+    //=========================================================================
+
+    assign out_flit_north  = xb_out_north;
+    assign out_flit_south  = xb_out_south;
+    assign out_flit_east   = xb_out_east;
+    assign out_flit_west   = xb_out_west;
+    assign out_flit_local  = xb_out_local;
+
+    assign out_valid_north = xb_val_north & grant_valid_qualified[PORT_NORTH];
+    assign out_valid_south = xb_val_south & grant_valid_qualified[PORT_SOUTH];
+    assign out_valid_east  = xb_val_east  & grant_valid_qualified[PORT_EAST];
+    assign out_valid_west  = xb_val_west  & grant_valid_qualified[PORT_WEST];
+    assign out_valid_local = xb_val_local & grant_valid_qualified[PORT_LOCAL];
+
+    //=========================================================================
+    // SVA
+    //
+    // These restate properties that M4 and M7 also check. That duplication is
+    // deliberate - an integration-level restatement is what catches a wiring
+    // error between two individually-correct modules. Know they are duplicates
+    // so a double report reads as one defect, not two.
+    //=========================================================================
+
+    // synthesis translate_off
+
+    // A physical input may supply at most one VC per cycle. This is the
+    // property whose violation motivated the M7 rewrite. It must now be
+    // unreachable; if it fires, M7's A9 has regressed.
+    a_onehot_sel_north: assert property (@(posedge clk) disable iff (rst)
+        $onehot0({sel_north_vc0, sel_north_vc1, sel_north_vc2}))
+        else $error("noc_router: two VCs selected from NORTH input - M7 A9 regressed");
+    a_onehot_sel_south: assert property (@(posedge clk) disable iff (rst)
+        $onehot0({sel_south_vc0, sel_south_vc1, sel_south_vc2}))
+        else $error("noc_router: two VCs selected from SOUTH input - M7 A9 regressed");
+    a_onehot_sel_east:  assert property (@(posedge clk) disable iff (rst)
+        $onehot0({sel_east_vc0, sel_east_vc1, sel_east_vc2}))
+        else $error("noc_router: two VCs selected from EAST input - M7 A9 regressed");
+    a_onehot_sel_west:  assert property (@(posedge clk) disable iff (rst)
+        $onehot0({sel_west_vc0, sel_west_vc1, sel_west_vc2}))
+        else $error("noc_router: two VCs selected from WEST input - M7 A9 regressed");
+    a_onehot_sel_local: assert property (@(posedge clk) disable iff (rst)
+        $onehot0({sel_local_vc0, sel_local_vc1, sel_local_vc2}))
+        else $error("noc_router: two VCs selected from LOCAL input - M7 A9 regressed");
+
+    // An output may only be valid if its own output was granted.
+    a_out_valid_implies_grant_n: assert property (@(posedge clk) disable iff (rst)
+        out_valid_north |-> grant_valid[PORT_NORTH])
+        else $error("noc_router: NORTH output valid without a NORTH grant");
+    a_out_valid_implies_grant_s: assert property (@(posedge clk) disable iff (rst)
+        out_valid_south |-> grant_valid[PORT_SOUTH])
+        else $error("noc_router: SOUTH output valid without a SOUTH grant");
+    a_out_valid_implies_grant_e: assert property (@(posedge clk) disable iff (rst)
+        out_valid_east  |-> grant_valid[PORT_EAST])
+        else $error("noc_router: EAST output valid without an EAST grant");
+    a_out_valid_implies_grant_w: assert property (@(posedge clk) disable iff (rst)
+        out_valid_west  |-> grant_valid[PORT_WEST])
+        else $error("noc_router: WEST output valid without a WEST grant");
+    a_out_valid_implies_grant_l: assert property (@(posedge clk) disable iff (rst)
+        out_valid_local |-> grant_valid[PORT_LOCAL])
+        else $error("noc_router: LOCAL output valid without a LOCAL grant");
+
+    // Synchronous LOCAL->LOCAL check.
+    // This integration-level check samples the safety condition on the clock
+    // boundary, avoiding false failures caused only by combinational delta
+    // settling inside the FIFO/allocator/crossbar chain.
+    a_no_loopback_local_sync: assert property (@(posedge clk) disable iff (rst)
+        !(crossbar_valid_local && (select_local == PORT_LOCAL)))
+        else $error("noc_router: synchronous LOCAL->LOCAL loopback");
+
+    a_no_loopback_north_sync: assert property (@(posedge clk) disable iff (rst)
+        !(crossbar_valid_north && (select_north == PORT_NORTH)))
+        else $error("noc_router: synchronous NORTH->NORTH loopback");
+
+    a_no_loopback_south_sync: assert property (@(posedge clk) disable iff (rst)
+        !(crossbar_valid_south && (select_south == PORT_SOUTH)))
+        else $error("noc_router: synchronous SOUTH->SOUTH loopback");
+
+    a_no_loopback_east_sync: assert property (@(posedge clk) disable iff (rst)
+        !(crossbar_valid_east && (select_east == PORT_EAST)))
+        else $error("noc_router: synchronous EAST->EAST loopback");
+
+    a_no_loopback_west_sync: assert property (@(posedge clk) disable iff (rst)
+        !(crossbar_valid_west && (select_west == PORT_WEST)))
+        else $error("noc_router: synchronous WEST->WEST loopback");
+
+    // Reset must produce no traffic.
+    // Reset is synchronous active-high. Sample the post-reset state one
+    // clock later; checking rst |-> !out_valid at the same edge observes the
+    // pre-edge combinational state and falsely flags a legal reset transition.
+    a_no_output_after_reset: assert property (@(posedge clk)
+        rst |=> (!out_valid_north && !out_valid_south && !out_valid_east &&
+                 !out_valid_west  && !out_valid_local))
+        else $error("noc_router: output valid remained asserted after reset");
+
+    // M8 must never invent or suppress a dequeue.
+    generate
+        for (genvar g = 0; g < IVCS; g++) begin : GEN_RD_CHECK
+            a_rd_en_matches_grant: assert property (@(posedge clk) disable iff (rst)
+                fifo_rd_en[g] == (grant[0][g] | grant[1][g] | grant[2][g] |
+                                  grant[3][g] | grant[4][g]))
+                else $error("noc_router: fifo_rd_en[%0d] disagrees with grant", g);
+        end
+    endgenerate
+
+    // synthesis translate_on
+
+endmodule
+

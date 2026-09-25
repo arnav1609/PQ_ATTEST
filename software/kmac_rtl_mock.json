@@ -1,0 +1,74 @@
+[
+  {
+    "vector_id": "KMAC_V01_NIST_empty_customization",
+    "rtl_output": "e5780b0d3ea6f7d3a429c5706aa43a00fadbd7d49628839e3187243f456ee14e"
+  },
+  {
+    "vector_id": "KMAC_V02_NIST_tagged_application",
+    "rtl_output": "3b1fba963cd8b0b59e8c1a6d71888b7143651af8ba0a7070c0979e2811324aa5"
+  },
+  {
+    "vector_id": "KMAC_V03_NIST_200_byte_message",
+    "rtl_output": "1f5b4e6cca02209e0dcb5ca635b89a15e271ecc760071dfd805faa38f9729230"
+  },
+  {
+    "vector_id": "KMAC_V04_empty_message",
+    "rtl_output": "02a504a0255bc4aea97387c9387085222e83dfaf46b8d9339e1f4822b3d93a97"
+  },
+  {
+    "vector_id": "KMAC_V05_short_message",
+    "rtl_output": "db7cef4050cab7f3c14c7ab3afa8dbc6f4a01c0aad60f79bc8186ec2fef516a7"
+  },
+  {
+    "vector_id": "KMAC_V06_167_byte_message",
+    "rtl_output": "d952c883c99a1499558a29064ebb5673b4a8dd183fc8108dc1544f0beaabb050"
+  },
+  {
+    "vector_id": "KMAC_V07_168_byte_message",
+    "rtl_output": "626912d9fb38a0f3b5d2b05b8dd3d21da6b9923e82600e30541487cff573c9b3"
+  },
+  {
+    "vector_id": "KMAC_V08_169_byte_message",
+    "rtl_output": "7c3ce95339c81c6fcc35e12ea87412b1d55a7b2473cba3f222937652b3053eb3"
+  },
+  {
+    "vector_id": "KMAC_V09_multiblock_message",
+    "rtl_output": "553820aae969512eacfad6ac505ec1acfff1b0c69e4d730719ef7ff8ba05008b"
+  },
+  {
+    "vector_id": "KMAC_V10_128_bit_output",
+    "rtl_output": "066c99ab0fb77680f592a2ca188364b6"
+  },
+  {
+    "vector_id": "KMAC_V11_random_1",
+    "rtl_output": "d2e27a45b34b8fa61d5d3881d980b5cf8c76d17271fa7561b9a72bd6192ee985"
+  },
+  {
+    "vector_id": "KMAC_V12_random_7",
+    "rtl_output": "29c43479b3f3baac3877e71e89e5c96bb83b9396d91889c51e8302e042324244"
+  },
+  {
+    "vector_id": "KMAC_V13_random_32",
+    "rtl_output": "e49f3fd5b48eee03e87a36e1ba43231332bc7235c03f5a3b8b66d7a134f667cc"
+  },
+  {
+    "vector_id": "KMAC_V14_random_167",
+    "rtl_output": "6adff1d75127ed5cf54f718cc844f538b658b658c25cb7f20fa9b1f538cbb9e7"
+  },
+  {
+    "vector_id": "KMAC_V15_random_168",
+    "rtl_output": "75df1f48e72cb0f7763a596b8681ceef73163a0d4ff3b56bd01922110fc745f7"
+  },
+  {
+    "vector_id": "KMAC_V16_random_169",
+    "rtl_output": "401cf393eab7d72a23be90938b3738e31584f59604f778ea6baf83bd58a3211f"
+  },
+  {
+    "vector_id": "KMAC_V17_random_300",
+    "rtl_output": "803fa77847b65ef27f5f2523d6c461934f972137ae3aa4268e3fc3d708f228af"
+  },
+  {
+    "vector_id": "KMAC_V18_random_511",
+    "rtl_output": "cfd2b45eeee73c8188089e4fbee90c12220e4b0be2d681311d0238c639dc1f45"
+  }
+]

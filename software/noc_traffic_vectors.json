@@ -1,0 +1,1015 @@
+{
+  "traffic": [
+    {
+      "transaction_id": "T0001",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_MEM_RD_REQ",
+      "msg_type_id": 0,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x00000001"
+      ]
+    },
+    {
+      "transaction_id": "T0002",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "EAST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_RD_RESP",
+      "msg_type_id": 1,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": [
+        "0x00010101"
+      ]
+    },
+    {
+      "transaction_id": "T0003",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "EAST",
+        "EAST"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_WR_REQ",
+      "msg_type_id": 2,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x00020201",
+        "0x00020202"
+      ]
+    },
+    {
+      "transaction_id": "T0004",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "SOUTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_WR_RESP",
+      "msg_type_id": 3,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0005",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "EAST",
+        "SOUTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_ATTEST_CHALLENGE",
+      "msg_type_id": 4,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x00040401",
+        "0x00040402",
+        "0x00040403",
+        "0x00040404",
+        "0x00040405"
+      ]
+    },
+    {
+      "transaction_id": "T0006",
+      "source": "TILE_CPU0",
+      "source_id": 0,
+      "source_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "EAST",
+        "EAST",
+        "SOUTH"
+      ],
+      "hop_count": 3,
+      "msg_type": "MSG_ATTEST_RESPONSE",
+      "msg_type_id": 5,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x00050501",
+        "0x00050502",
+        "0x00050503",
+        "0x00050504",
+        "0x00050505",
+        "0x00050506",
+        "0x00050507",
+        "0x00050508",
+        "0x00050509",
+        "0x0005050A",
+        "0x0005050B",
+        "0x0005050C",
+        "0x0005050D",
+        "0x0005050E",
+        "0x0005050F",
+        "0x00050510"
+      ]
+    },
+    {
+      "transaction_id": "T0007",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "WEST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_ATTEST_GRANT",
+      "msg_type_id": 6,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0008",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_ATTEST_REVOKE",
+      "msg_type_id": 7,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0009",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "EAST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_RD_REQ",
+      "msg_type_id": 0,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x01020001"
+      ]
+    },
+    {
+      "transaction_id": "T0010",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "WEST",
+        "SOUTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_RD_RESP",
+      "msg_type_id": 1,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": [
+        "0x01030101"
+      ]
+    },
+    {
+      "transaction_id": "T0011",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "SOUTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_WR_REQ",
+      "msg_type_id": 2,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x01040201",
+        "0x01040202"
+      ]
+    },
+    {
+      "transaction_id": "T0012",
+      "source": "TILE_CPU1",
+      "source_id": 1,
+      "source_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "EAST",
+        "SOUTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_WR_RESP",
+      "msg_type_id": 3,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0013",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "WEST",
+        "WEST"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_ATTEST_CHALLENGE",
+      "msg_type_id": 4,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x02000401",
+        "0x02000402",
+        "0x02000403",
+        "0x02000404",
+        "0x02000405"
+      ]
+    },
+    {
+      "transaction_id": "T0014",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "WEST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_ATTEST_RESPONSE",
+      "msg_type_id": 5,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x02010501",
+        "0x02010502",
+        "0x02010503",
+        "0x02010504",
+        "0x02010505",
+        "0x02010506",
+        "0x02010507",
+        "0x02010508",
+        "0x02010509",
+        "0x0201050A",
+        "0x0201050B",
+        "0x0201050C",
+        "0x0201050D",
+        "0x0201050E",
+        "0x0201050F",
+        "0x02010510"
+      ]
+    },
+    {
+      "transaction_id": "T0015",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_ATTEST_GRANT",
+      "msg_type_id": 6,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0016",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "WEST",
+        "WEST",
+        "SOUTH"
+      ],
+      "hop_count": 3,
+      "msg_type": "MSG_ATTEST_REVOKE",
+      "msg_type_id": 7,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0017",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "WEST",
+        "SOUTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_RD_REQ",
+      "msg_type_id": 0,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x02040001"
+      ]
+    },
+    {
+      "transaction_id": "T0018",
+      "source": "TILE_MEMORY",
+      "source_id": 2,
+      "source_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "SOUTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_RD_RESP",
+      "msg_type_id": 1,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": [
+        "0x02050101"
+      ]
+    },
+    {
+      "transaction_id": "T0019",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "NORTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_WR_REQ",
+      "msg_type_id": 2,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x03000201",
+        "0x03000202"
+      ]
+    },
+    {
+      "transaction_id": "T0020",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "EAST",
+        "NORTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_WR_RESP",
+      "msg_type_id": 3,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0021",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "EAST",
+        "EAST",
+        "NORTH"
+      ],
+      "hop_count": 3,
+      "msg_type": "MSG_ATTEST_CHALLENGE",
+      "msg_type_id": 4,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x03020401",
+        "0x03020402",
+        "0x03020403",
+        "0x03020404",
+        "0x03020405"
+      ]
+    },
+    {
+      "transaction_id": "T0022",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_ATTEST_RESPONSE",
+      "msg_type_id": 5,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x03030501",
+        "0x03030502",
+        "0x03030503",
+        "0x03030504",
+        "0x03030505",
+        "0x03030506",
+        "0x03030507",
+        "0x03030508",
+        "0x03030509",
+        "0x0303050A",
+        "0x0303050B",
+        "0x0303050C",
+        "0x0303050D",
+        "0x0303050E",
+        "0x0303050F",
+        "0x03030510"
+      ]
+    },
+    {
+      "transaction_id": "T0023",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "EAST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_ATTEST_GRANT",
+      "msg_type_id": 6,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0024",
+      "source": "TILE_CRYPTO",
+      "source_id": 3,
+      "source_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "EAST",
+        "EAST"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_ATTEST_REVOKE",
+      "msg_type_id": 7,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0025",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "WEST",
+        "NORTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_RD_REQ",
+      "msg_type_id": 0,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x04000001"
+      ]
+    },
+    {
+      "transaction_id": "T0026",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "NORTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_RD_RESP",
+      "msg_type_id": 1,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": [
+        "0x04010101"
+      ]
+    },
+    {
+      "transaction_id": "T0027",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "EAST",
+        "NORTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_WR_REQ",
+      "msg_type_id": 2,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x04020201",
+        "0x04020202"
+      ]
+    },
+    {
+      "transaction_id": "T0028",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "WEST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_WR_RESP",
+      "msg_type_id": 3,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0029",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_ATTEST_CHALLENGE",
+      "msg_type_id": 4,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x04040401",
+        "0x04040402",
+        "0x04040403",
+        "0x04040404",
+        "0x04040405"
+      ]
+    },
+    {
+      "transaction_id": "T0030",
+      "source": "TILE_ROT",
+      "source_id": 4,
+      "source_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "EAST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_ATTEST_RESPONSE",
+      "msg_type_id": 5,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": [
+        "0x04050501",
+        "0x04050502",
+        "0x04050503",
+        "0x04050504",
+        "0x04050505",
+        "0x04050506",
+        "0x04050507",
+        "0x04050508",
+        "0x04050509",
+        "0x0405050A",
+        "0x0405050B",
+        "0x0405050C",
+        "0x0405050D",
+        "0x0405050E",
+        "0x0405050F",
+        "0x04050510"
+      ]
+    },
+    {
+      "transaction_id": "T0031",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_CPU0",
+      "destination_id": 0,
+      "destination_coord": {
+        "x": 0,
+        "y": 0
+      },
+      "route": [
+        "WEST",
+        "WEST",
+        "NORTH"
+      ],
+      "hop_count": 3,
+      "msg_type": "MSG_ATTEST_GRANT",
+      "msg_type_id": 6,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0032",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_CPU1",
+      "destination_id": 1,
+      "destination_coord": {
+        "x": 1,
+        "y": 0
+      },
+      "route": [
+        "WEST",
+        "NORTH"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_ATTEST_REVOKE",
+      "msg_type_id": 7,
+      "vc": "VC_ATTESTATION",
+      "vc_id": 2,
+      "payload": []
+    },
+    {
+      "transaction_id": "T0033",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_MEMORY",
+      "destination_id": 2,
+      "destination_coord": {
+        "x": 2,
+        "y": 0
+      },
+      "route": [
+        "NORTH"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_RD_REQ",
+      "msg_type_id": 0,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x05020001"
+      ]
+    },
+    {
+      "transaction_id": "T0034",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_CRYPTO",
+      "destination_id": 3,
+      "destination_coord": {
+        "x": 0,
+        "y": 1
+      },
+      "route": [
+        "WEST",
+        "WEST"
+      ],
+      "hop_count": 2,
+      "msg_type": "MSG_MEM_RD_RESP",
+      "msg_type_id": 1,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": [
+        "0x05030101"
+      ]
+    },
+    {
+      "transaction_id": "T0035",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_ROT",
+      "destination_id": 4,
+      "destination_coord": {
+        "x": 1,
+        "y": 1
+      },
+      "route": [
+        "WEST"
+      ],
+      "hop_count": 1,
+      "msg_type": "MSG_MEM_WR_REQ",
+      "msg_type_id": 2,
+      "vc": "VC_REQUEST",
+      "vc_id": 0,
+      "payload": [
+        "0x05040201",
+        "0x05040202"
+      ]
+    },
+    {
+      "transaction_id": "T0036",
+      "source": "TILE_SPOOF",
+      "source_id": 5,
+      "source_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "destination": "TILE_SPOOF",
+      "destination_id": 5,
+      "destination_coord": {
+        "x": 2,
+        "y": 1
+      },
+      "route": [
+        "LOCAL"
+      ],
+      "hop_count": 0,
+      "msg_type": "MSG_MEM_WR_RESP",
+      "msg_type_id": 3,
+      "vc": "VC_RESPONSE",
+      "vc_id": 1,
+      "payload": []
+    }
+  ]
+}

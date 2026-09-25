@@ -1,0 +1,17 @@
+[
+    {
+        "vector_id": "V01",
+        "input": "0011223344556677",
+        "expected_output": "8899aabbccddeeff"
+    },
+    {
+        "vector_id": "V02",
+        "input": "1020304050607080",
+        "expected_output": "ffeeddccbbaa9988"
+    },
+    {
+        "vector_id": "V03",
+        "input": "deadbeefcafebabe",
+        "expected_output": "0123456789abcdef"
+    }
+]

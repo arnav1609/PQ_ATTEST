@@ -1,0 +1,1032 @@
+
+*** Running vivado
+    with args -log noc_mesh_synth_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source noc_mesh_synth_top.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Thu Sep 24 07:36:56 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source noc_mesh_synth_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 540.355 ; gain = 208.879
+Command: read_checkpoint -auto_incremental -incremental C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/utils_1/imports/synth_1/noc_mesh_synth_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/utils_1/imports/synth_1/noc_mesh_synth_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top noc_mesh_synth_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Device 21-9227] Part: xc7a100tcsg324-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19792
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1412.785 ; gain = 448.527
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'noc_mesh_synth_top' [C:/vivado_verilog_proj/NOC_PQATTEST/synth/noc_mesh_synth_top.sv:26]
+INFO: [Synth 8-6157] synthesizing module 'noc_mesh_3x2' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:55]
+INFO: [Synth 8-6157] synthesizing module 'noc_router' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_router.sv:96]
+INFO: [Synth 8-6157] synthesizing module 'noc_router_datapath' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:78]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:847]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:852]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:856]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:861]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:865]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:870]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:874]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:879]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:883]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:888]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:898]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:903]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:907]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:912]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:916]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:921]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:925]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:930]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:934]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:939]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:337]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:354]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:371]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:388]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:405]
+INFO: [Synth 8-6157] synthesizing module 'noc_fifo' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:38]
+	Parameter DEPTH bound to: 32'b00000000000000000000000000000100 
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:274]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:279]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:287]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:292]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:300]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:305]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:319]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:324]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:328]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:333]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:341]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:346]
+WARNING: [Synth 8-2898] ignoring property declaration [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:354]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:359]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:233]
+INFO: [Synth 8-6155] done synthesizing module 'noc_fifo' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:38]
+INFO: [Synth 8-293] found qualifier priority on case statement: implementing as full_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:696]
+INFO: [Synth 8-293] found qualifier priority on case statement: implementing as full_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:725]
+INFO: [Synth 8-293] found qualifier priority on case statement: implementing as full_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:754]
+INFO: [Synth 8-293] found qualifier priority on case statement: implementing as full_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:783]
+INFO: [Synth 8-293] found qualifier priority on case statement: implementing as full_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:812]
+INFO: [Synth 8-6155] done synthesizing module 'noc_router_datapath' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_DATAPTAH.sv:78]
+INFO: [Synth 8-6157] synthesizing module 'NOC_ALLOCATOR' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:60]
+INFO: [Synth 8-6157] synthesizing module 'noc_xy_routing' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_XY_ROUTING.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'noc_xy_routing' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_XY_ROUTING.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'NOC_ARBITER' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:5]
+	Parameter N bound to: 32'sb00000000000000000000000000000011 
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:249]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:267]
+INFO: [Synth 8-6155] done synthesizing module 'NOC_ARBITER' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'NOC_ARBITER__parameterized0' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:5]
+	Parameter N bound to: 32'sb00000000000000000000000000000101 
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:249]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:267]
+INFO: [Synth 8-6155] done synthesizing module 'NOC_ARBITER__parameterized0' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:5]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:552]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:560]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:568]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:552]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:560]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:568]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:552]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:560]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:568]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:552]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:560]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:568]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:552]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:560]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:568]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:588]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:608]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:631]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:652]
+WARNING: [Synth 8-2898] ignoring concurrent assertion [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:652]
+INFO: [Common 17-14] Message 'Synth 8-2898' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-226] default block is never used [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:443]
+INFO: [Synth 8-226] default block is never used [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:443]
+INFO: [Synth 8-226] default block is never used [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:443]
+INFO: [Synth 8-226] default block is never used [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:443]
+INFO: [Synth 8-226] default block is never used [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:443]
+INFO: [Synth 8-6155] done synthesizing module 'NOC_ALLOCATOR' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/allocator.sv:60]
+INFO: [Synth 8-6157] synthesizing module 'noc_credit_control' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_credit_counter.sv:41]
+INFO: [Synth 8-6155] done synthesizing module 'noc_credit_control' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_credit_counter.sv:41]
+INFO: [Synth 8-6157] synthesizing module 'noc_crossbar' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:40]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:137]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:176]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:215]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:254]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:293]
+INFO: [Synth 8-6155] done synthesizing module 'noc_crossbar' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_CROSSBAR.sv:40]
+INFO: [Synth 8-6157] synthesizing module 'noc_fifo__parameterized0' [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:38]
+	Parameter DEPTH bound to: 32'b00000000000000000000000000001100 
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[0][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[1][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[2][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[3][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[4][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[4][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[4][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[5][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[5][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[5][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[6][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[6][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[6][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[7][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[7][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[7][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[8][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[8][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[8][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[9][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[9][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[9][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[10][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[10][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[10][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[11][flit_data]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[11][flit_type]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+WARNING: [Synth 8-7186] Applying attribute ram_style = "distributed" is ignored, object 'fifo_mem[11][vc_id]' is not inferred as ram due to incorrect usage [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:127]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:233]
+INFO: [Synth 8-6155] done synthesizing module 'noc_fifo__parameterized0' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_FIFO.sv:38]
+INFO: [Synth 8-6155] done synthesizing module 'noc_router' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_router.sv:96]
+INFO: [Synth 8-6155] done synthesizing module 'noc_mesh_3x2' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:55]
+INFO: [Synth 8-6155] done synthesizing module 'noc_mesh_synth_top' (0#1) [C:/vivado_verilog_proj/NOC_PQATTEST/synth/noc_mesh_synth_top.sv:26]
+WARNING: [Synth 8-6014] Unused sequential element rr_ptr_prev_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:243]
+WARNING: [Synth 8-6014] Unused sequential element rr_ptr_prev_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/NOC_arbiter.sv:243]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_n_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_n_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_n_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_w_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_w_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.q_w_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.qv_n_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[0].G_LINK_REG.qv_w_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[1].G_LINK_REG.q_n_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[1].G_LINK_REG.q_n_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[1].G_LINK_REG.q_n_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[1].G_LINK_REG.qv_n_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_n_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_n_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_n_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_e_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_e_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.q_e_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.qv_n_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[2].G_LINK_REG.qv_e_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_s_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_s_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_s_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_w_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_w_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.q_w_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.qv_s_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[3].G_LINK_REG.qv_w_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[4].G_LINK_REG.q_s_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[4].G_LINK_REG.q_s_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[4].G_LINK_REG.q_s_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[4].G_LINK_REG.qv_s_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_s_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_s_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_s_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_e_reg[flit_data] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_e_reg[flit_type] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.q_e_reg[vc_id] was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:191]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.qv_s_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R[5].G_LINK_REG.qv_e_reg was removed.  [C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.srcs/sources_1/new/noc_mesh_3x2.sv:192]
+WARNING: [Synth 8-7129] Port grant[0][14] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][13] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][12] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][11] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][10] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][9] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][8] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][7] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][6] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][5] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][4] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][3] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][2] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][1] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[0][0] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][14] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][13] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][12] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][11] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][10] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][9] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][8] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][7] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][6] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][5] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][4] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][3] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][2] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][1] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[1][0] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][14] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][13] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][12] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][11] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][10] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][9] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][8] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][7] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][6] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][5] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][4] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][3] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][2] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][1] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[2][0] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][14] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][13] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][12] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][11] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][10] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][9] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][8] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][7] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][6] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][5] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][4] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][3] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][2] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][1] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[3][0] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][14] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][13] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][12] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][11] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][10] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][9] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][8] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][7] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][6] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][5] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][4] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][3] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][2] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][1] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port grant[4][0] in module noc_credit_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][25] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][24] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][23] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][22] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][21] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][20] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][19] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][18] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][17] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][16] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][15] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][14] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][13] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][12] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][11] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][10] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][9] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][8] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][7] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][6] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][5] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][4] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][3] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][2] in module NOC_ALLOCATOR is either unconnected or has no load
+WARNING: [Synth 8-7129] Port head_flit[0][flit_data][1] in module NOC_ALLOCATOR is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1565.133 ; gain = 600.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1565.133 ; gain = 600.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1565.133 ; gain = 600.875
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.328 . Memory (MB): peak = 1565.133 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/vivado_verilog_proj/NOC_PQATTEST/synth/n25_mesh.xdc]
+Finished Parsing XDC File [C:/vivado_verilog_proj/NOC_PQATTEST/synth/n25_mesh.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/vivado_verilog_proj/NOC_PQATTEST/synth/n25_mesh.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/noc_mesh_synth_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/noc_mesh_synth_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1671.957 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1671.957 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1671.957 ; gain = 707.699
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1671.957 ; gain = 707.699
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1671.957 ; gain = 707.699
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1671.957 ; gain = 707.699
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    5 Bit       Adders := 120   
+	   2 Input    4 Bit       Adders := 426   
+	   2 Input    3 Bit       Adders := 696   
+	   2 Input    2 Bit       Adders := 270   
++---XORs : 
+	   4 Input      1 Bit         XORs := 7     
++---XORs : 
+	              216 Bit    Wide XORs := 1     
+	                6 Bit    Wide XORs := 2     
++---Registers : 
+	               40 Bit    Registers := 6     
+	               32 Bit    Registers := 20    
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 36    
+	                3 Bit    Registers := 210   
+	                2 Bit    Registers := 71    
+	                1 Bit    Registers := 117   
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 336   
+	   4 Input   32 Bit        Muxes := 30    
+	   2 Input   15 Bit        Muxes := 672   
+	   2 Input    5 Bit        Muxes := 174   
+	   2 Input    4 Bit        Muxes := 42    
+	   4 Input    4 Bit        Muxes := 30    
+	   4 Input    3 Bit        Muxes := 180   
+	   5 Input    3 Bit        Muxes := 90    
+	   2 Input    3 Bit        Muxes := 342   
+	   6 Input    3 Bit        Muxes := 6     
+	   7 Input    3 Bit        Muxes := 24    
+	   3 Input    3 Bit        Muxes := 30    
+	   2 Input    2 Bit        Muxes := 552   
+	   4 Input    2 Bit        Muxes := 66    
+	   4 Input    1 Bit        Muxes := 516   
+	   2 Input    1 Bit        Muxes := 2982  
+	   5 Input    1 Bit        Muxes := 30    
+	   6 Input    1 Bit        Muxes := 510   
+	   3 Input    1 Bit        Muxes := 378   
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:51 ; elapsed = 00:01:55 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+|Module Name              | RTL Object                                | Inference      | Size (Depth x Width) | Primitives    | 
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:56 ; elapsed = 00:02:00 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:04 ; elapsed = 00:02:08 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+|Module Name              | RTL Object                                | Inference      | Size (Depth x Width) | Primitives    | 
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | south_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | east_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | north_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc0_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc1_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_data]  | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][flit_type]  | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | west_vc2_fifo/fifo_mem_reg[0][vc_id]      | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc0_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc1_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_data] | User Attribute | 4 x 32               | RAM32M x 6    | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][flit_type] | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_datapath   | local_vc2_fifo/fifo_mem_reg[0][vc_id]     | User Attribute | 4 x 2                | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_data]                | User Attribute | 16 x 32              | RAM32M x 6    | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][flit_type]                | User Attribute | 16 x 2               | RAM16X1D x 2  | 
+|noc_router:/u_eject_fifo | fifo_mem_reg[0][vc_id]                    | User Attribute | 16 x 2               | RAM16X1D x 2  | 
++-------------------------+-------------------------------------------+----------------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:15 ; elapsed = 00:02:19 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:15 ; elapsed = 00:02:20 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |LUT1     |    18|
+|3     |LUT2     |   520|
+|4     |LUT3     |   710|
+|5     |LUT4     |  1374|
+|6     |LUT5     |  2707|
+|7     |LUT6     |  4457|
+|8     |MUXF7    |    29|
+|9     |RAM16X1D |   264|
+|10    |RAM32M   |   330|
+|11    |RAM32X1D |   132|
+|12    |FDRE     |  1958|
+|13    |FDSE     |   219|
+|14    |IBUF     |     2|
+|15    |OBUF     |     1|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:07 ; elapsed = 00:02:17 . Memory (MB): peak = 2027.312 ; gain = 956.230
+Synthesis Optimization Complete : Time (s): cpu = 00:02:16 ; elapsed = 00:02:21 . Memory (MB): peak = 2027.312 ; gain = 1063.055
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.177 . Memory (MB): peak = 2027.312 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 755 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2027.312 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 726 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 264 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 330 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 132 instances
+
+Synth Design complete | Checksum: c7bf4a27
+INFO: [Common 17-83] Releasing license: Synthesis
+70 Infos, 291 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:22 ; elapsed = 00:02:28 . Memory (MB): peak = 2027.312 ; gain = 1479.012
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2027.312 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/vivado_verilog_proj/NOC_PQATTEST/NOC_PQATTEST.runs/synth_1/noc_mesh_synth_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file noc_mesh_synth_top_utilization_synth.rpt -pb noc_mesh_synth_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 24 07:39:33 2026...

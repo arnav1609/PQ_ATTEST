@@ -1,0 +1,223 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+| Date         : Wed Sep 23 22:58:06 2026
+| Host         : LAPTOP-N9F2OTPF running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 4 -file C:/vivado_verilog_proj/NOC_PQATTEST/reports/n25_2026-09-23/util_hier_routed.rpt
+| Design       : noc_mesh_synth_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------------+---------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|              Instance              |              Module             | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------------------+---------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| noc_mesh_synth_top                 |                           (top) |      10652 |       8936 |    1716 |    0 | 1452 |      0 |      0 |          0 |
+|   (noc_mesh_synth_top)             |                           (top) |          6 |          6 |       0 |    0 |  244 |      0 |      0 |          0 |
+|   u_mesh                           |                    noc_mesh_3x2 |      10646 |       8930 |    1716 |    0 | 1208 |      0 |      0 |          0 |
+|     GEN_R[0].r                     |                      noc_router |       1657 |       1397 |     260 |    0 |  194 |      0 |      0 |          0 |
+|       (GEN_R[0].r)                 |                      noc_router |        266 |        266 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |               NOC_ALLOCATOR_143 |        628 |        628 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |               NOC_ALLOCATOR_143 |          4 |          4 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       | NOC_ARBITER__parameterized0_162 |         96 |         96 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       | NOC_ARBITER__parameterized0_163 |         81 |         81 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       | NOC_ARBITER__parameterized0_164 |        101 |        101 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       | NOC_ARBITER__parameterized0_165 |         84 |         84 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       | NOC_ARBITER__parameterized0_166 |         80 |         80 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                 NOC_ARBITER_167 |         28 |         28 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                 NOC_ARBITER_168 |         53 |         53 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                 NOC_ARBITER_169 |         85 |         85 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                 NOC_ARBITER_170 |         29 |         29 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                 NOC_ARBITER_171 |          0 |          0 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |          noc_credit_control_144 |         59 |         59 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |         noc_router_datapath_145 |        657 |        423 |     234 |    0 |   87 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                    noc_fifo_147 |         88 |         62 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                    noc_fifo_148 |         52 |         26 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                    noc_fifo_149 |         61 |         35 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                    noc_fifo_150 |         93 |         67 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                    noc_fifo_151 |         67 |         41 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                    noc_fifo_152 |         82 |         56 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                    noc_fifo_153 |          4 |          4 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                    noc_fifo_154 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                    noc_fifo_155 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                    noc_fifo_156 |         88 |         62 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                    noc_fifo_157 |         51 |         25 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                    noc_fifo_158 |         61 |         35 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                    noc_fifo_159 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                    noc_fifo_160 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                    noc_fifo_161 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|       u_eject_fifo                 |    noc_fifo__parameterized0_146 |         48 |         22 |      26 |    0 |   12 |      0 |      0 |          0 |
+|     GEN_R[1].r                     |                    noc_router_0 |       1953 |       1615 |     338 |    0 |  214 |      0 |      0 |          0 |
+|       (GEN_R[1].r)                 |                    noc_router_0 |        465 |        465 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |               NOC_ALLOCATOR_114 |        479 |        479 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |               NOC_ALLOCATOR_114 |         24 |         24 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       | NOC_ARBITER__parameterized0_133 |         98 |         98 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       | NOC_ARBITER__parameterized0_134 |         84 |         84 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       | NOC_ARBITER__parameterized0_135 |         79 |         79 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       | NOC_ARBITER__parameterized0_136 |         67 |         67 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       | NOC_ARBITER__parameterized0_137 |         34 |         34 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                 NOC_ARBITER_138 |         31 |         31 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                 NOC_ARBITER_139 |         28 |         28 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                 NOC_ARBITER_140 |         14 |         14 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                 NOC_ARBITER_141 |         27 |         27 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                 NOC_ARBITER_142 |          0 |          0 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |          noc_credit_control_115 |         62 |         62 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |         noc_router_datapath_116 |        908 |        596 |     312 |    0 |  107 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                    noc_fifo_118 |         86 |         60 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                    noc_fifo_119 |         48 |         22 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                    noc_fifo_120 |         83 |         57 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                    noc_fifo_121 |         88 |         62 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                    noc_fifo_122 |         50 |         24 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                    noc_fifo_123 |        131 |        105 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                    noc_fifo_124 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                    noc_fifo_125 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                    noc_fifo_126 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                    noc_fifo_127 |         84 |         58 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                    noc_fifo_128 |         49 |         23 |      26 |    0 |   10 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                    noc_fifo_129 |         80 |         54 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                    noc_fifo_130 |         87 |         61 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                    noc_fifo_131 |         51 |         25 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                    noc_fifo_132 |         66 |         40 |      26 |    0 |    8 |      0 |      0 |          0 |
+|       u_eject_fifo                 |    noc_fifo__parameterized0_117 |         47 |         21 |      26 |    0 |   12 |      0 |      0 |          0 |
+|     GEN_R[2].r                     |                    noc_router_1 |       1703 |       1443 |     260 |    0 |  194 |      0 |      0 |          0 |
+|       (GEN_R[2].r)                 |                    noc_router_1 |        354 |        354 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |                NOC_ALLOCATOR_85 |        541 |        541 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |                NOC_ALLOCATOR_85 |         13 |         13 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       | NOC_ARBITER__parameterized0_104 |         81 |         81 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       | NOC_ARBITER__parameterized0_105 |         90 |         90 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       | NOC_ARBITER__parameterized0_106 |         79 |         79 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       | NOC_ARBITER__parameterized0_107 |        100 |        100 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       | NOC_ARBITER__parameterized0_108 |         86 |         86 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                 NOC_ARBITER_109 |         22 |         22 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                 NOC_ARBITER_110 |          9 |          9 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                 NOC_ARBITER_111 |         57 |         57 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                 NOC_ARBITER_112 |          7 |          7 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                 NOC_ARBITER_113 |          0 |          0 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |           noc_credit_control_86 |         58 |         58 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |          noc_router_datapath_87 |        706 |        472 |     234 |    0 |   87 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                     noc_fifo_89 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                     noc_fifo_90 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                     noc_fifo_91 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                     noc_fifo_92 |         98 |         72 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                     noc_fifo_93 |         60 |         34 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                     noc_fifo_94 |        112 |         86 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                     noc_fifo_95 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                     noc_fifo_96 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                     noc_fifo_97 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                     noc_fifo_98 |         80 |         54 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                     noc_fifo_99 |         46 |         20 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                    noc_fifo_100 |         97 |         71 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                    noc_fifo_101 |         85 |         59 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                    noc_fifo_102 |         46 |         20 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                    noc_fifo_103 |         70 |         44 |      26 |    0 |    8 |      0 |      0 |          0 |
+|       u_eject_fifo                 |     noc_fifo__parameterized0_88 |         47 |         21 |      26 |    0 |   12 |      0 |      0 |          0 |
+|     GEN_R[3].r                     |                    noc_router_2 |       1694 |       1434 |     260 |    0 |  195 |      0 |      0 |          0 |
+|       (GEN_R[3].r)                 |                    noc_router_2 |        413 |        413 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |                NOC_ALLOCATOR_56 |        565 |        565 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |                NOC_ALLOCATOR_56 |          2 |          2 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       |  NOC_ARBITER__parameterized0_75 |         93 |         93 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       |  NOC_ARBITER__parameterized0_76 |         98 |         98 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       |  NOC_ARBITER__parameterized0_77 |         58 |         58 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       |  NOC_ARBITER__parameterized0_78 |         56 |         56 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       |  NOC_ARBITER__parameterized0_79 |         47 |         47 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                  NOC_ARBITER_80 |         36 |         36 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                  NOC_ARBITER_81 |         57 |         57 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                  NOC_ARBITER_82 |         58 |         58 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                  NOC_ARBITER_83 |         21 |         21 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                  NOC_ARBITER_84 |         46 |         46 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |           noc_credit_control_57 |         59 |         59 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |          noc_router_datapath_58 |        615 |        381 |     234 |    0 |   88 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                     noc_fifo_60 |         93 |         67 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                     noc_fifo_61 |         46 |         20 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                     noc_fifo_62 |         55 |         29 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                     noc_fifo_63 |         90 |         64 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                     noc_fifo_64 |         57 |         31 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                     noc_fifo_65 |         51 |         25 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                     noc_fifo_66 |         92 |         66 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                     noc_fifo_67 |         71 |         45 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                     noc_fifo_68 |         45 |         19 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                     noc_fifo_69 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                     noc_fifo_70 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                     noc_fifo_71 |          4 |          4 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                     noc_fifo_72 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                     noc_fifo_73 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                     noc_fifo_74 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|       u_eject_fifo                 |     noc_fifo__parameterized0_59 |         47 |         21 |      26 |    0 |   12 |      0 |      0 |          0 |
+|     GEN_R[4].r                     |                    noc_router_3 |       2092 |       1754 |     338 |    0 |  211 |      0 |      0 |          0 |
+|       (GEN_R[4].r)                 |                    noc_router_3 |        449 |        449 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |                NOC_ALLOCATOR_27 |        556 |        556 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |                NOC_ALLOCATOR_27 |          6 |          6 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       |  NOC_ARBITER__parameterized0_46 |         99 |         99 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       |  NOC_ARBITER__parameterized0_47 |         73 |         73 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       |  NOC_ARBITER__parameterized0_48 |         60 |         60 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       |  NOC_ARBITER__parameterized0_49 |         90 |         90 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       |  NOC_ARBITER__parameterized0_50 |         57 |         57 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                  NOC_ARBITER_51 |         42 |         42 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                  NOC_ARBITER_52 |         67 |         67 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                  NOC_ARBITER_53 |         47 |         47 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                  NOC_ARBITER_54 |         27 |         27 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                  NOC_ARBITER_55 |          0 |          0 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |           noc_credit_control_28 |         61 |         61 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |          noc_router_datapath_29 |        982 |        670 |     312 |    0 |  104 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                     noc_fifo_31 |        107 |         81 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                     noc_fifo_32 |         58 |         32 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                     noc_fifo_33 |         67 |         41 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                     noc_fifo_34 |        106 |         80 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                     noc_fifo_35 |         72 |         46 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                     noc_fifo_36 |         87 |         61 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                     noc_fifo_37 |         98 |         72 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                     noc_fifo_38 |         87 |         61 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                     noc_fifo_39 |         62 |         36 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                     noc_fifo_40 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                     noc_fifo_41 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                     noc_fifo_42 |          4 |          4 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                     noc_fifo_43 |        106 |         80 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                     noc_fifo_44 |         62 |         36 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                     noc_fifo_45 |         62 |         36 |      26 |    0 |    8 |      0 |      0 |          0 |
+|       u_eject_fifo                 |     noc_fifo__parameterized0_30 |         47 |         21 |      26 |    0 |   12 |      0 |      0 |          0 |
+|     GEN_R[5].r                     |                    noc_router_4 |       1547 |       1287 |     260 |    0 |  200 |      0 |      0 |          0 |
+|       (GEN_R[5].r)                 |                    noc_router_4 |        267 |        267 |       0 |    0 |    0 |      0 |      0 |          0 |
+|       u_allocator                  |                   NOC_ALLOCATOR |        543 |        543 |       0 |    0 |   50 |      0 |      0 |          0 |
+|         (u_allocator)              |                   NOC_ALLOCATOR |          8 |          8 |       0 |    0 |   25 |      0 |      0 |          0 |
+|         GEN_ARB[0].u_arbiter       |     NOC_ARBITER__parameterized0 |         84 |         84 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[1].u_arbiter       |  NOC_ARBITER__parameterized0_19 |         65 |         65 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[2].u_arbiter       |  NOC_ARBITER__parameterized0_20 |         80 |         80 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[3].u_arbiter       |  NOC_ARBITER__parameterized0_21 |         90 |         90 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_ARB[4].u_arbiter       |  NOC_ARBITER__parameterized0_22 |         50 |         50 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         GEN_IN_ARB[0].u_in_arbiter |                     NOC_ARBITER |         35 |         35 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[1].u_in_arbiter |                  NOC_ARBITER_23 |         50 |         50 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[2].u_in_arbiter |                  NOC_ARBITER_24 |         60 |         60 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[3].u_in_arbiter |                  NOC_ARBITER_25 |         31 |         31 |       0 |    0 |    2 |      0 |      0 |          0 |
+|         GEN_IN_ARB[4].u_in_arbiter |                  NOC_ARBITER_26 |          0 |          0 |       0 |    0 |    2 |      0 |      0 |          0 |
+|       u_credit_control             |              noc_credit_control |         57 |         57 |       0 |    0 |   45 |      0 |      0 |          0 |
+|       u_datapath                   |             noc_router_datapath |        634 |        400 |     234 |    0 |   93 |      0 |      0 |          0 |
+|         east_vc0_fifo              |                        noc_fifo |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         east_vc1_fifo              |                      noc_fifo_5 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         east_vc2_fifo              |                      noc_fifo_6 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         local_vc0_fifo             |                      noc_fifo_7 |         52 |         26 |      26 |    0 |    7 |      0 |      0 |          0 |
+|         local_vc1_fifo             |                      noc_fifo_8 |         60 |         34 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         local_vc2_fifo             |                      noc_fifo_9 |        108 |         82 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc0_fifo             |                     noc_fifo_10 |         83 |         57 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc1_fifo             |                     noc_fifo_11 |         73 |         47 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         north_vc2_fifo             |                     noc_fifo_12 |         50 |         24 |      26 |    0 |    9 |      0 |      0 |          0 |
+|         south_vc0_fifo             |                     noc_fifo_13 |          3 |          3 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc1_fifo             |                     noc_fifo_14 |          2 |          2 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         south_vc2_fifo             |                     noc_fifo_15 |          4 |          4 |       0 |    0 |    3 |      0 |      0 |          0 |
+|         west_vc0_fifo              |                     noc_fifo_16 |         81 |         55 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc1_fifo              |                     noc_fifo_17 |         54 |         28 |      26 |    0 |    8 |      0 |      0 |          0 |
+|         west_vc2_fifo              |                     noc_fifo_18 |         58 |         32 |      26 |    0 |   10 |      0 |      0 |          0 |
+|       u_eject_fifo                 |        noc_fifo__parameterized0 |         47 |         21 |      26 |    0 |   12 |      0 |      0 |          0 |
++------------------------------------+---------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+
